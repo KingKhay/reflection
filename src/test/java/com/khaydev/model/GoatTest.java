@@ -1,6 +1,9 @@
 package com.khaydev.model;
 
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
@@ -11,9 +14,11 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class GoatTest {
 
     @Test
+    @Order(1)
     void testGetClassName(){
         Object goat = new Goat();
         Class<?> clazz = goat.getClass();
@@ -24,6 +29,7 @@ class GoatTest {
     }
 
     @Test
+    @Order(2)
     void testShouldCreateClassWhenFullyQualifiedClassNameIsProvided() throws ClassNotFoundException {
         Class<?> clazz = Class.forName("com.khaydev.model.Goat");
 
@@ -33,6 +39,7 @@ class GoatTest {
     }
 
     @Test
+    @Order(3)
     void testShouldVerifyModifiers() throws ClassNotFoundException {
         Class<?> goatClass = Class.forName("com.khaydev.model.Goat");
         Class<?> animalClass = Class.forName("com.khaydev.model.Animal");
@@ -46,6 +53,7 @@ class GoatTest {
     }
 
     @Test
+    @Order(4)
     void testShouldVerifyPackageInfo() {
         Object goat = new Goat();
         Class<?> goatClass = goat.getClass();
@@ -55,6 +63,7 @@ class GoatTest {
     }
 
     @Test
+    @Order(5)
     void testShouldGetSuperClassInfo(){
         Object goat = new Goat();
         Class<?> goatClass = goat.getClass();
@@ -64,6 +73,7 @@ class GoatTest {
     }
 
     @Test
+    @Order(6)
     void testShouldGetImplementedInterfaces(){
         Object goat = new Goat();
         Class<?> goatClass = goat.getClass();
@@ -74,6 +84,7 @@ class GoatTest {
     }
 
     @Test
+    @Order(7)
     void testShouldVerifyConstructorInfo(){
         Object goat = new Goat();
         Class<?> goatClass = goat.getClass();
@@ -84,6 +95,7 @@ class GoatTest {
     }
 
     @Test
+    @Order(8)
     void testShouldVerifyMethodInfo(){
         Object goat = new Goat();
         Class<?> goatClass = goat.getClass();
